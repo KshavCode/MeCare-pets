@@ -1,0 +1,240 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-display: 'Press Start 2P', monospace;
+    --font-pixel-body: 'VT323', monospace;
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'VT323', monospace;
+  }
+
+  html, body {
+    font-family: var(--font-sans);
+    background-color: #F6F2EB;
+    color: #2C3545;
+    margin: 0;
+    padding: 0;
+    overscroll-behavior-y: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: none;
+    image-rendering: pixelated;
+    touch-action: manipulation;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+    line-height: 1.25;
+  }
+
+  .font-pixel {
+    font-family: var(--font-pixel-body);
+    letter-spacing: 0.02em;
+  }
+
+  .font-mono, .tabular-nums {
+    font-family: var(--font-pixel-body);
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Soft, Eye-Friendly 8-Bit Pixel Box Utilities */
+.pixel-box {
+  border: 2px solid #3B4254;
+  box-shadow: 3px 3px 0px rgba(59, 66, 84, 0.22);
+  border-radius: 6px;
+}
+
+.pixel-box-sm {
+  border: 2px solid #3B4254;
+  box-shadow: 2px 2px 0px rgba(59, 66, 84, 0.18);
+  border-radius: 4px;
+}
+
+.pixel-btn {
+  border: 2px solid #3B4254;
+  box-shadow: 0px 3px 0px rgba(59, 66, 84, 0.28);
+  border-radius: 5px;
+  transition: transform 80ms steps(2), box-shadow 80ms steps(2), background-color 120ms ease;
+}
+
+.pixel-btn:active:not(:disabled) {
+  transform: translateY(2px);
+  box-shadow: 0px 1px 0px rgba(59, 66, 84, 0.28);
+}
+
+/* Interactive Pet Gesture Animations (Click = Tickle, Swipe Up = Jump, Double Click = Trip & Fall) */
+@keyframes pixelTickle {
+  0%, 100% {
+    transform: translateX(0px) rotate(0deg) scale(1);
+  }
+  25% {
+    transform: translateX(-5px) rotate(-5deg) scale(1.03, 0.97);
+  }
+  50% {
+    transform: translateX(5px) rotate(5deg) scale(0.97, 1.03);
+  }
+  75% {
+    transform: translateX(-5px) rotate(-5deg) scale(1.03, 0.97);
+  }
+}
+
+@keyframes pixelFallOver {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  18% {
+    transform: translateY(-10px) rotate(-14deg);
+  }
+  42% {
+    transform: translateY(10px) translateX(14px) rotate(86deg) scale(1.04, 0.92);
+  }
+  80% {
+    transform: translateY(10px) translateX(14px) rotate(86deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+}
+
+@keyframes pixelJump {
+  0% {
+    transform: translateY(0px) scale(1.06, 0.92);
+  }
+  35% {
+    transform: translateY(-44px) scale(0.96, 1.06);
+  }
+  65% {
+    transform: translateY(-38px) scale(1, 1);
+  }
+  88% {
+    transform: translateY(0px) scale(1.08, 0.9);
+  }
+  100% {
+    transform: translateY(0px) scale(1, 1);
+  }
+}
+
+@keyframes pixelCheatShake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-7px);
+  }
+  50% {
+    transform: translateX(7px);
+  }
+  75% {
+    transform: translateX(-4px);
+  }
+}
+
+@keyframes crateRattle {
+  0%, 100% {
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    transform: rotate(-1.5deg) scale(1.015);
+  }
+  50% {
+    transform: rotate(1.5deg) scale(1.025);
+  }
+  75% {
+    transform: rotate(-1deg) scale(1.015);
+  }
+}
+
+/* Mythic Pet Exclusive Idle Animation */
+@keyframes mythicSovereignPulse {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-3px) scale(1.02);
+  }
+}
+
+@keyframes pixelDashLeft {
+  0% {
+    transform: translateX(0px) translateY(0px) rotate(0deg);
+  }
+  30% {
+    transform: translateX(-38px) translateY(-10px) rotate(-12deg) scale(1.04, 0.96);
+  }
+  65% {
+    transform: translateX(-18px) translateY(-18px) rotate(6deg);
+  }
+  100% {
+    transform: translateX(0px) translateY(0px) rotate(0deg) scale(1);
+  }
+}
+
+@keyframes pixelDashRight {
+  0% {
+    transform: translateX(0px) translateY(0px) rotate(0deg);
+  }
+  30% {
+    transform: translateX(38px) translateY(-10px) rotate(12deg) scale(1.04, 0.96);
+  }
+  65% {
+    transform: translateX(18px) translateY(-18px) rotate(-6deg);
+  }
+  100% {
+    transform: translateX(0px) translateY(0px) rotate(0deg) scale(1);
+  }
+}
+
+@keyframes pixelCrouch {
+  0% {
+    transform: translateY(0px) scale(1, 1);
+  }
+  30% {
+    transform: translateY(14px) scale(1.16, 0.8);
+  }
+  60% {
+    transform: translateY(12px) scale(1.14, 0.82);
+  }
+  82% {
+    transform: translateY(-10px) scale(0.95, 1.06);
+  }
+  100% {
+    transform: translateY(0px) scale(1, 1);
+  }
+}
+
+.anim-pixel-tickle {
+  animation: pixelTickle 0.45s steps(2, end) 2;
+}
+
+.anim-pixel-fall {
+  animation: pixelFallOver 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.anim-pixel-jump,
+.anim-pixel-flip {
+  animation: pixelJump 0.78s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.anim-pixel-dash-left {
+  animation: pixelDashLeft 0.72s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.anim-pixel-dash-right {
+  animation: pixelDashRight 0.72s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.anim-pixel-crouch {
+  animation: pixelCrouch 0.72s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.anim-pixel-penalized {
+  animation: pixelCheatShake 0.4s steps(2, end) 3;
+}
+
+.anim-crate-rattle {
+  animation: crateRattle 0.85s ease-in-out infinite;
+}
+
+.anim-mythic-idle {
+  animation: mythicSovereignPulse 2.4s steps(3, end) infinite;
+}

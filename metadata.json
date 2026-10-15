@@ -1,0 +1,6 @@
+{
+  "name": "EvoQuest — Companion Task RPG",
+  "description": "Evolve your virtual companion from Baby to Adult through daily tasks, habit streaks, anti-cheat discipline, and species collection.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

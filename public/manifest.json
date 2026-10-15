@@ -1,0 +1,13 @@
+{
+  "id": "/",
+  "name": "MeCare: Pets To-Do List",
+  "short_name": "MeCare",
+  "description": "MeCare: Pets To-Do List — Evolve your virtual companion from Baby to Adult through daily tasks, habit streaks, anti-cheat discipline, and species collection.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#FAF6F0",
+  "theme_color": "#3B4254",
+  "categories": ["productivity", "games", "lifestyle"]
+}

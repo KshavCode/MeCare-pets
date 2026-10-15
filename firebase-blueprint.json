@@ -1,0 +1,191 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "Stores a player's non-PII companion state, evolution XP, vitals, currency, and unlocked pet species.",
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "string",
+          "description": "The owner user ID matching request.auth.uid.",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "username": {
+          "type": "string",
+          "description": "Display handle chosen by the user.",
+          "minLength": 3,
+          "maxLength": 32,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "activeSpeciesId": {
+          "type": "string",
+          "description": "Currently active companion species ID across Common, Uncommon, Rare, Epic, Legendary, and Mythic tiers.",
+          "minLength": 3,
+          "maxLength": 40,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "activePetName": {
+          "type": "string",
+          "description": "Custom nickname given to the active companion using the pencil rename control.",
+          "minLength": 1,
+          "maxLength": 28
+        },
+        "unlockedSpecies": {
+          "type": "array",
+          "description": "Bounded list of unlocked species IDs (maximum 50 species)."
+        },
+        "petXp": {
+          "type": "number",
+          "description": "Total evolution experience points driving Baby, Kid, Teen, and Adult stages."
+        },
+        "petHealth": {
+          "type": "number",
+          "description": "Companion health meter from 0 to 100."
+        },
+        "petHappiness": {
+          "type": "number",
+          "description": "Companion happiness meter from 0 to 100."
+        },
+        "petEnergy": {
+          "type": "number",
+          "description": "Companion vitality and nourishment meter from 0 to 100."
+        },
+        "gold": {
+          "type": "number",
+          "description": "Earned currency spent in the Pet Sanctuary Store."
+        },
+        "streakDays": {
+          "type": "number",
+          "description": "Consecutive daily task completion streak."
+        },
+        "cheatCount": {
+          "type": "number",
+          "description": "Cumulative count of anti-cheat penalties triggered by premature task completion."
+        },
+        "totalTasksCompleted": {
+          "type": "number",
+          "description": "Cumulative count of verified tasks completed."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp when the profile was created."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp when the profile was last updated."
+        }
+      },
+      "required": [
+        "uid",
+        "username",
+        "activeSpeciesId",
+        "activePetName",
+        "unlockedSpecies",
+        "petXp",
+        "petHealth",
+        "petHappiness",
+        "petEnergy",
+        "gold",
+        "streakDays",
+        "cheatCount",
+        "totalTasksCompleted",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "TaskItem": {
+      "title": "TaskItem",
+      "description": "A user to-do task linked to companion growth milestones and anti-cheat timer validation.",
+      "type": "object",
+      "properties": {
+        "ownerId": {
+          "type": "string",
+          "description": "The UID of the user who owns this task.",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "title": {
+          "type": "string",
+          "description": "Task title description.",
+          "minLength": 2,
+          "maxLength": 140
+        },
+        "category": {
+          "type": "string",
+          "description": "Task category linked to pet care attributes.",
+          "enum": ["vitality", "intellect", "strength", "discipline"],
+          "minLength": 3,
+          "maxLength": 24
+        },
+        "difficulty": {
+          "type": "string",
+          "description": "Task difficulty tier determining XP, Gold, and anti-cheat minimum incubation time.",
+          "enum": ["quick", "standard", "deep", "epic"],
+          "minLength": 4,
+          "maxLength": 16
+        },
+        "status": {
+          "type": "string",
+          "description": "Lifecycle status of the task. Once completed or penalized, terminal state locking prevents further updates.",
+          "enum": ["pending", "completed", "penalized"],
+          "minLength": 7,
+          "maxLength": 16
+        },
+        "minDurationSeconds": {
+          "type": "number",
+          "description": "Minimum required elapsed seconds before completion to prevent instant-check cheating."
+        },
+        "xpReward": {
+          "type": "number",
+          "description": "Evolution XP granted on legitimate completion."
+        },
+        "goldReward": {
+          "type": "number",
+          "description": "Gold coins granted on legitimate completion."
+        },
+        "createdAtMs": {
+          "type": "number",
+          "description": "Client creation epoch milliseconds used alongside server timestamps for countdown display."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp of task creation."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp of last task update."
+        }
+      },
+      "required": [
+        "ownerId",
+        "title",
+        "category",
+        "difficulty",
+        "status",
+        "minDurationSeconds",
+        "xpReward",
+        "goldReward",
+        "createdAtMs",
+        "createdAt",
+        "updatedAt"
+      ]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/UserProfile" },
+      "description": "Player profile and companion state document indexed by auth UID."
+    },
+    "/users/{userId}/tasks/{taskId}": {
+      "schema": { "$ref": "#/entities/TaskItem" },
+      "description": "Subcollection of to-do tasks belonging to a specific user."
+    }
+  }
+}
