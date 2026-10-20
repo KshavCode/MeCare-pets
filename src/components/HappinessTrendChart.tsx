@@ -61,21 +61,6 @@ export const HappinessTrendChart: React.FC<HappinessTrendChartProps> = ({
         </div>
 
         <div className="flex items-center gap-1.5">
-          {dayCount > 1 ? (
-            <span
-              className={`px-1.5 py-0.5 border border-[#3B4254] font-display text-[9px] ${
-                delta >= 0
-                  ? 'bg-emerald-200 text-slate-950'
-                  : 'bg-rose-200 text-slate-950'
-              }`}
-            >
-              {delta >= 0 ? `+${delta}%` : `${delta}%`}
-            </span>
-          ) : (
-            <span className="px-1.5 py-0.5 bg-emerald-200 text-slate-950 border border-[#3B4254] font-display text-[9px]">
-              DAY 1
-            </span>
-          )}
           {onClose && (
             <button
               type="button"
@@ -112,14 +97,14 @@ export const HappinessTrendChart: React.FC<HappinessTrendChartProps> = ({
               <CartesianGrid strokeDasharray="3 3" stroke="#E2E8F0" />
               <XAxis
                 dataKey="dayLabel"
-                tick={{ fontSize: 10, fill: '#334155', fontFamily: 'VT323' }}
+                tick={{ fontSize: 11, fill: '#334155', fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 600 }}
                 axisLine={{ stroke: '#3B4254' }}
                 tickLine={false}
               />
               <YAxis
                 domain={[0, 100]}
                 ticks={[0, 50, 100]}
-                tick={{ fontSize: 10, fill: '#64748B', fontFamily: 'VT323' }}
+                tick={{ fontSize: 10, fill: '#64748B', fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 600 }}
                 axisLine={{ stroke: '#3B4254' }}
                 tickLine={false}
               />
@@ -127,10 +112,12 @@ export const HappinessTrendChart: React.FC<HappinessTrendChartProps> = ({
                 contentStyle={{
                   backgroundColor: '#FFFBEB',
                   border: '2px solid #3B4254',
-                  borderRadius: '0px',
-                  padding: '4px 8px',
-                  fontFamily: 'VT323',
-                  fontSize: '15px',
+                  borderRadius: '6px',
+                  padding: '6px 10px',
+                  fontFamily: "'Plus Jakarta Sans', sans-serif",
+                  fontSize: '12px',
+                  fontWeight: 600,
+                  boxShadow: '2px 2px 0px rgba(59,66,84,0.2)',
                 }}
                 formatter={(value: unknown, _name: unknown, item: { payload?: DailyHappinessPoint }) => [
                   `${Number(value ?? 0)}% (${item?.payload?.interactions ?? 0} interactions)`,
@@ -152,19 +139,6 @@ export const HappinessTrendChart: React.FC<HappinessTrendChartProps> = ({
           </ResponsiveContainer>
         </div>
       )}
-
-      {/* Summary Footer */}
-      <div className="mt-2 pt-1.5 border-t border-slate-200 flex items-center justify-between font-pixel text-base font-bold text-slate-700">
-        <span className="flex items-center gap-1">
-          <Sparkles className="w-3.5 h-3.5 text-amber-500" />
-          <span>
-            {dayCount === 1
-              ? `${totalInteractions} interactions today`
-              : `${totalInteractions} interactions (${dayCount}d)`}
-          </span>
-        </span>
-        <span className="text-amber-700">Now: {currentHappiness}%</span>
-      </div>
     </div>
   );
 };

@@ -244,18 +244,13 @@ export const FloatingTasksDrawer: React.FC<FloatingTasksDrawerProps> = ({
           aria-label="Daily Quests Modal"
           className="fixed inset-0 z-50 bg-slate-900/45 flex items-center justify-center p-3 sm:p-5 select-none"
         >
-          <div className="w-full max-w-lg max-h-[88dvh] bg-[#FAF6F0] pixel-box overflow-hidden flex flex-col text-slate-900">
+          <div className="w-full max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl max-h-[88dvh] md:max-h-[85dvh] bg-[#FAF6F0] pixel-box overflow-hidden flex flex-col text-slate-900">
             {/* Modal Header */}
             <div className="px-4 sm:px-5 py-3.5 bg-[#EFE8DD] border-b-2 border-[#3B4254] flex items-center justify-between gap-2">
               <div className="flex items-center gap-2">
                 <div className="font-display text-xs sm:text-sm text-slate-900">
                   {showAddForm ? 'NEW QUEST' : 'QUESTS'}
                 </div>
-                {!showAddForm && (
-                  <span className="px-2 py-0.5 bg-orange-100 border border-[#3B4254] font-pixel text-base font-bold text-orange-900">
-                    x{streakMultiplier.toFixed(2)} XP
-                  </span>
-                )}
               </div>
 
               <div className="flex items-center gap-2">
@@ -287,10 +282,9 @@ export const FloatingTasksDrawer: React.FC<FloatingTasksDrawerProps> = ({
                     setIsOpen(false);
                   }}
                   aria-label="Close quests"
-                  className="px-3 py-1.5 bg-rose-400 hover:bg-rose-300 text-slate-950 font-display text-[10px] sm:text-xs pixel-btn flex items-center gap-1"
+                  className="px-5 py-1 bg-rose-400 hover:bg-rose-300 text-slate-950 font-display text-[10px] sm:text-xs pixel-btn flex items-center gap-1"
                 >
-                  <X className="w-4 h-4" />
-                  <span className="hidden sm:inline">CLOSE</span>
+                  <X className="w-5 h-5" />
                 </button>
               </div>
             </div>
@@ -304,7 +298,7 @@ export const FloatingTasksDrawer: React.FC<FloatingTasksDrawerProps> = ({
                     <div className="font-display text-[10px] text-rose-900">
                       EARLY COMPLETION PENALTY!
                     </div>
-                    <p className="font-pixel text-lg text-rose-800 leading-tight mt-1 flex flex-wrap items-center gap-1">
+                    <p className="font-pixel text-xs sm:text-sm text-rose-800 leading-tight mt-1 flex flex-wrap items-center gap-1">
                       <span>
                         “{latestPenalty.taskTitle}” checked at{' '}
                         {latestPenalty.elapsedSeconds}s (min{' '}
@@ -374,7 +368,7 @@ export const FloatingTasksDrawer: React.FC<FloatingTasksDrawerProps> = ({
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
                     placeholder="Enter quest title..."
-                    className="w-full px-3 py-2.5 bg-white border-2 border-[#3B4254] rounded text-slate-900 placeholder-slate-400 font-pixel text-xl focus:outline-none"
+                    className="w-full px-3 py-2 bg-white border-2 border-[#3B4254] rounded text-slate-900 placeholder-slate-400 font-pixel text-sm sm:text-base focus:outline-none"
                   />
                 </div>
 
@@ -389,7 +383,7 @@ export const FloatingTasksDrawer: React.FC<FloatingTasksDrawerProps> = ({
                       onChange={(e) =>
                         setCategory(e.target.value as TaskCategory)
                       }
-                      className="w-full px-2.5 py-2 bg-white border-2 border-[#3B4254] rounded text-slate-900 font-pixel text-lg font-bold"
+                      className="w-full px-2.5 py-1.5 bg-white border-2 border-[#3B4254] rounded text-slate-900 font-pixel text-xs sm:text-sm font-bold"
                     >
                       {(
                         Object.keys(TASK_CATEGORY_CONFIG) as TaskCategory[]
@@ -411,7 +405,7 @@ export const FloatingTasksDrawer: React.FC<FloatingTasksDrawerProps> = ({
                         onChange={(e) =>
                           setDifficulty(e.target.value as TaskDifficulty)
                         }
-                        className="w-full px-2.5 py-2 bg-white border-2 border-[#3B4254] rounded text-slate-900 font-pixel text-lg font-bold"
+                        className="w-full px-2.5 py-1.5 bg-white border-2 border-[#3B4254] rounded text-slate-900 font-pixel text-xs sm:text-sm font-bold"
                       >
                         {(
                           Object.keys(
@@ -437,7 +431,7 @@ export const FloatingTasksDrawer: React.FC<FloatingTasksDrawerProps> = ({
                         onChange={(e) =>
                           setTimerDurationSeconds(Number(e.target.value))
                         }
-                        className="w-full px-2.5 py-2 bg-sky-50 border-2 border-[#3B4254] rounded text-slate-900 font-pixel text-lg font-bold"
+                        className="w-full px-2.5 py-1.5 bg-sky-50 border-2 border-[#3B4254] rounded text-slate-900 font-pixel text-xs sm:text-sm font-bold"
                       >
                         {TIMER_PRESETS.map((preset) => (
                           <option key={preset.seconds} value={preset.seconds}>
@@ -664,7 +658,7 @@ export const FloatingTasksDrawer: React.FC<FloatingTasksDrawerProps> = ({
 
                           {/* Middle Row: Full-Width Quest Title */}
                           <p
-                            className={`font-pixel text-xl sm:text-2xl font-bold leading-snug break-words ${
+                            className={`font-pixel text-sm sm:text-base font-bold leading-snug break-words ${
                               task.status === 'completed'
                                 ? 'line-through text-slate-400'
                                 : task.status === 'penalized'
@@ -678,12 +672,12 @@ export const FloatingTasksDrawer: React.FC<FloatingTasksDrawerProps> = ({
                           {/* Bottom Row: Rewards & Status on Left, Primary Action Button on Right */}
                           <div className="flex items-center justify-between gap-2 pt-1 border-t border-slate-100">
                             <div className="flex flex-wrap items-center gap-1.5">
-                              <span className="px-2 py-0.5 bg-amber-100 border border-[#3B4254] font-pixel text-base font-bold text-slate-900 flex items-center gap-1">
+                              <span className="px-2 py-0.5 bg-amber-100 border border-[#3B4254] font-pixel text-xs sm:text-sm font-bold text-slate-900 flex items-center gap-1">
                                 <PixelCoinIcon size={14} />
                                 <span>+{task.goldReward}</span>
                               </span>
 
-                              <span className="px-2 py-0.5 bg-emerald-100 border border-[#3B4254] font-pixel text-base font-bold text-emerald-950">
+                              <span className="px-2 py-0.5 bg-emerald-100 border border-[#3B4254] font-pixel text-xs sm:text-sm font-bold text-emerald-950">
                                 +{boostedXp} XP
                               </span>
 
@@ -691,7 +685,7 @@ export const FloatingTasksDrawer: React.FC<FloatingTasksDrawerProps> = ({
                                 <>
                                   {isTimerTask ? (
                                     <span
-                                      className={`font-pixel text-base font-bold ${
+                                      className={`font-pixel text-xs sm:text-sm font-bold ${
                                         isTimerPaused
                                           ? 'text-amber-800'
                                           : isTimerRunning
@@ -711,7 +705,7 @@ export const FloatingTasksDrawer: React.FC<FloatingTasksDrawerProps> = ({
                                     </span>
                                   ) : (
                                     <span
-                                      className={`font-pixel text-base font-bold flex items-center gap-1 ${
+                                      className={`font-pixel text-xs sm:text-sm font-bold flex items-center gap-1 ${
                                         isStdReady
                                           ? 'text-emerald-700'
                                           : 'text-amber-700'

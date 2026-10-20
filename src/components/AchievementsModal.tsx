@@ -216,7 +216,7 @@ export const AchievementsModal: React.FC<AchievementsModalProps> = ({
 
     return (
       <div className="p-3.5 sm:p-5 bg-white pixel-box space-y-4">
-        {/* Card Header: Track Name + Current Count */}
+        {/* Card Header: Track Name */}
         <div className="flex items-center justify-between gap-2">
           <div className="flex items-center gap-2">
             {icon}
@@ -282,9 +282,6 @@ export const AchievementsModal: React.FC<AchievementsModalProps> = ({
         <div className="p-3 bg-[#FAF6F0] border-2 border-[#3B4254] space-y-2.5">
           <div className="flex items-center justify-between gap-2 flex-wrap">
             <div className="flex items-center gap-2">
-              <span className="font-display text-xs sm:text-sm text-slate-950 font-bold">
-                CHECKPOINT: {activeAch.targetValue.toLocaleString()} {unitLabel}
-              </span>
               {isClaimed ? (
                 <span className="px-2 py-0.5 bg-emerald-100 text-emerald-900 border border-emerald-400 font-display text-[9px]">
                   CLAIMED
@@ -320,12 +317,11 @@ export const AchievementsModal: React.FC<AchievementsModalProps> = ({
           </div>
 
           {/* Simple Clean Rewards/Perks Row Below */}
-          <div className="flex items-center gap-2 flex-wrap pt-2 border-t border-slate-300">
-            <span className="font-display text-[9px] text-slate-500">REWARDS:</span>
+          <div className="flex items-center gap-2 flex-wrap pt-2">
 
             {/* Gold */}
-            <div className="inline-flex items-center gap-1 px-2 py-0.5 bg-amber-100 border border-[#3B4254] font-display text-[10px] text-slate-950">
-              <PixelCoinIcon size={13} />
+            <div className="inline-flex items-center gap-1.5 px-2 py-2 bg-amber-100 border border-[#3B4254] font-display text-[10px] text-slate-950">
+              <PixelCoinIcon size={15} />
               <span>+{activeAch.unfairGoldReward}</span>
             </div>
 
@@ -333,10 +329,10 @@ export const AchievementsModal: React.FC<AchievementsModalProps> = ({
             {exclusiveDecorItem && (
               <div
                 title={`${exclusiveDecorItem.name} (${exclusiveDecorItem.category.toUpperCase()})`}
-                className="inline-flex items-center gap-1.5 px-2 py-0.5 bg-white border border-[#3B4254]"
+                className="inline-flex items-center gap-1.5 px-2 py-1 bg-white border border-[#3B4254]"
               >
                 <RoomDecorSvg decorId={exclusiveDecorItem.id} size={18} />
-                <span className="font-pixel text-sm font-bold text-slate-800">
+                <span className="font-pixel text-s font-bold text-slate-800">
                   {exclusiveDecorItem.name} ({exclusiveDecorItem.category.toUpperCase()})
                 </span>
               </div>
@@ -344,7 +340,7 @@ export const AchievementsModal: React.FC<AchievementsModalProps> = ({
 
             {/* Pet Reward (At most 2 pets total in each track) */}
             {petReward && (
-              <div className="inline-flex items-center gap-1.5 px-2 py-0.5 bg-rose-100 border border-rose-500 text-rose-950 font-pixel text-sm font-bold">
+              <div className="inline-flex items-center gap-1.5 px-2 py-1.5 bg-rose-100 border border-rose-500 text-rose-950 font-pixel text-sm font-bold">
                 <Heart className="w-3.5 h-3.5 text-rose-600 fill-rose-500" />
                 <span>Pet: {petReward.name}</span>
               </div>
@@ -352,8 +348,8 @@ export const AchievementsModal: React.FC<AchievementsModalProps> = ({
 
             {/* Permanent Perk */}
             {activeAch.permanentPerkText && (
-              <div className="inline-flex items-center gap-1 px-2 py-0.5 bg-purple-100 border border-purple-500 text-purple-950 font-display text-[9px]">
-                <Sparkles className="w-3 h-3 text-purple-600" />
+              <div className="inline-flex items-center gap-1 px-2 py-2.5 bg-purple-50 border border-purple-500 text-purple-950 font-display text-[9px]">
+                <Sparkles className="w-3.5 h-3.5 text-purple-600" />
                 <span>{activeAch.permanentPerkText}</span>
               </div>
             )}
@@ -365,7 +361,7 @@ export const AchievementsModal: React.FC<AchievementsModalProps> = ({
 
   return (
     <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-3 sm:p-5 select-none animate-in fade-in duration-150">
-      <div className="w-full max-w-2xl max-h-[92dvh] bg-[#FAF6F0] pixel-box overflow-hidden flex flex-col text-slate-900 shadow-2xl relative">
+      <div className="w-full max-w-2xl max-h-[92dvh] md:max-h-[88dvh] bg-[#FAF6F0] pixel-box overflow-hidden flex flex-col text-slate-900 shadow-2xl relative">
         {/* Clean Header */}
         <div className="px-4 sm:px-5 py-3.5 bg-[#EFE8DD] border-b-2 border-[#3B4254] flex items-center justify-between gap-2">
           <div className="flex items-center gap-2.5">
@@ -374,21 +370,17 @@ export const AchievementsModal: React.FC<AchievementsModalProps> = ({
             </div>
             <div>
               <h2 className="font-display text-xs sm:text-base text-slate-900">
-                ACHIEVEMENTS ({claimedList.length}/{ACHIEVEMENTS_LIST.length})
+                ACHIEVEMENTS
               </h2>
-              <p className="font-pixel text-sm font-bold text-slate-600">
-                8 Milestone Checkpoints with Rare Decor, Perks & Exclusive Pets
-              </p>
             </div>
           </div>
 
           <button
             type="button"
             onClick={onClose}
-            className="px-3 sm:px-4 py-2 bg-rose-400 hover:bg-rose-300 text-slate-950 font-display text-[10px] sm:text-xs pixel-btn flex items-center gap-1.5 shrink-0"
+            className="px-5 py-1 bg-rose-400 hover:bg-rose-300 text-slate-950 font-display text-xs pixel-btn flex items-center gap-1"
           >
-            <X className="w-4 h-4" />
-            <span className="hidden sm:inline">CLOSE</span>
+            <X className="w-5 h-5" />
           </button>
         </div>
 
@@ -396,9 +388,9 @@ export const AchievementsModal: React.FC<AchievementsModalProps> = ({
         <div className="p-3 sm:p-5 overflow-y-auto space-y-4 flex-1">
           {/* Track 1: Day Streak Checkpoints (7, 14, 30, 60, 90, 120, 250, 365) */}
           {renderMilestoneTrackCard({
-            trackTitle: 'DAY STREAK (MAX 365 DAYS)',
+            trackTitle: 'STREAK COUNT',
             currentValue: profile.streakDays,
-            icon: <Flame className="w-5 h-5 text-orange-600 shrink-0" />,
+            icon: <Flame className="w-7 h-7 text-orange-600 shrink-0" />,
             accentBarClass: 'bg-amber-400',
             checkpoints: streakAchievements,
             selectedId: selectedStreakAchId,
@@ -407,9 +399,9 @@ export const AchievementsModal: React.FC<AchievementsModalProps> = ({
 
           {/* Track 2: Quest Checkpoints (25, 50, 100, 250, 500, 1000, 2500, 5000) */}
           {renderMilestoneTrackCard({
-            trackTitle: 'QUESTS COMPLETED (MAX 5,000)',
+            trackTitle: 'QUEST COUNT',
             currentValue: profile.totalTasksCompleted,
-            icon: <CheckSquare className="w-5 h-5 text-sky-600 shrink-0" />,
+            icon: <CheckSquare className="w-7 h-7 text-sky-600 shrink-0" />,
             accentBarClass: 'bg-sky-400',
             checkpoints: taskAchievements,
             selectedId: selectedTaskAchId,

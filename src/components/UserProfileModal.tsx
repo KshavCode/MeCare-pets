@@ -148,7 +148,7 @@ export const UserProfileModal: React.FC<UserProfileModalProps> = ({
                         setUsernameDraft(e.target.value);
                         if (usernameError) setUsernameError(null);
                       }}
-                      className="px-1.5 py-0.5 bg-white border border-slate-700 text-slate-900 font-pixel text-base font-bold w-32 focus:outline-none"
+                      className="px-1.5 py-0.5 bg-white border border-slate-700 text-slate-900 font-pixel text-sm font-bold w-32 focus:outline-none"
                     />
                     <button
                       type="submit"
@@ -179,8 +179,8 @@ export const UserProfileModal: React.FC<UserProfileModalProps> = ({
                 </div>
               ) : (
                 <div className="flex items-center gap-1.5 mt-0.5">
-                  <p className="font-pixel text-base font-bold text-slate-600">
-                    @{profile.username}
+                  <p className="font-pixel text-sm font-bold text-slate-600">
+                    @ {profile.username}
                   </p>
                   <button
                     type="button"
@@ -207,10 +207,9 @@ export const UserProfileModal: React.FC<UserProfileModalProps> = ({
           <button
             type="button"
             onClick={onClose}
-            className="px-3.5 py-2 bg-rose-400 hover:bg-rose-300 text-slate-950 font-display text-xs pixel-btn flex items-center gap-1.5"
+            className="px-5 py-1 bg-rose-400 hover:bg-rose-300 text-slate-950 font-display text-xs pixel-btn flex items-center gap-1"
           >
-            <X className="w-4 h-4" />
-            <span>CLOSE</span>
+            <X className="w-5 h-5" />
           </button>
         </div>
 
@@ -227,7 +226,7 @@ export const UserProfileModal: React.FC<UserProfileModalProps> = ({
                   <Flame className="w-3.5 h-3.5 text-orange-500 fill-current" />
                   <span>x{streakMultiplier.toFixed(2)} XP</span>
                 </span>
-                <span className="font-pixel text-lg font-bold text-slate-700">
+                <span className="font-pixel text-xs font-bold text-slate-700">
                   {userDisciplineInfo.intoLevelXp}/
                   {userDisciplineInfo.requiredForNextLevelXp} XP
                 </span>
@@ -264,7 +263,7 @@ export const UserProfileModal: React.FC<UserProfileModalProps> = ({
                       autoFocus
                       value={nameDraft}
                       onChange={(e) => setNameDraft(e.target.value)}
-                      className="px-2 py-0.5 bg-white border-2 border-slate-800 text-slate-900 font-pixel text-lg font-bold w-28 focus:outline-none"
+                      className="px-2 py-0.5 bg-white border-2 border-slate-800 text-slate-900 font-pixel text-sm font-bold w-full focus:outline-none"
                     />
                     <button
                       type="submit"
@@ -330,7 +329,7 @@ export const UserProfileModal: React.FC<UserProfileModalProps> = ({
             <button
               type="button"
               onClick={onToggleSound}
-              className="py-2.5 px-3 bg-white hover:bg-slate-50 pixel-btn flex items-center justify-center gap-2 font-display text-[10px] text-slate-900"
+              className="py-2.5 px-3 bg-white hover:bg-slate-50 pixel-btn flex items-center justify-center gap-2 font-display text-xs text-slate-900"
             >
               {soundMuted ? (
                 <>
@@ -348,7 +347,7 @@ export const UserProfileModal: React.FC<UserProfileModalProps> = ({
             <button
               type="button"
               onClick={onSignOut}
-              className="py-2.5 px-3 bg-rose-100 hover:bg-rose-200 text-rose-950 pixel-btn flex items-center justify-center gap-2 font-display text-[10px]"
+              className="py-2.5 px-3 bg-rose-100 hover:bg-rose-200 text-rose-950 pixel-btn flex items-center justify-center gap-2 font-display text-xs"
             >
               <LogOut className="w-4 h-4" />
               <span>SIGN OUT</span>

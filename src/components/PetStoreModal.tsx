@@ -216,7 +216,6 @@ export const PetStoreView: React.FC<PetStoreViewProps> = ({
                     {isActive ? (
                       <>
                         <Check className="w-4 h-4" />
-                        <span>ACTIVE</span>
                       </>
                     ) : isUnlocked ? (
                       <span>SELECT</span>

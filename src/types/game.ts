@@ -119,17 +119,7 @@ export type AnimalCryCategory =
 
 export interface PetSpeciesConfig {
   id: PetSpeciesId;
-  name: string;
-  title: string;
   rarity: PetRarityTier;
-  populationNote: string;
-  vibeTag: string;
-  styleArchetype:
-    | 'Balanced Starter'
-    | 'Cute & Wholesome'
-    | 'Cool & Tactical'
-    | 'Ultra-Cute Cosmic'
-    | 'Fierce & Badass';
   priceGold: number;
   isDefault: boolean;
   primaryColor: string;

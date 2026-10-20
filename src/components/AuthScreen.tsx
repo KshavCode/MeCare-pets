@@ -122,14 +122,14 @@ export const AuthScreen: React.FC<AuthScreenProps> = ({ onLoginSuccess }) => {
       className="relative w-screen h-dvh overflow-hidden text-slate-800 select-none"
     >
       {/* Left Interactive 8-Bit Companion Stage (Desktop) */}
-      <div className="hidden lg:block absolute inset-0 right-[440px] z-0">
+      <div className="hidden lg:block absolute inset-0 lg:right-[440px] xl:right-[480px] 2xl:right-[520px] z-0">
         <Pet3DScene speciesId="common_dog" stage="kid" mood="idle" />
 
-        <div className="pointer-events-none absolute top-5 left-5 z-10 max-w-md bg-[#FFFDF9] p-4 pixel-box">
-          <h1 className="font-display text-base text-slate-900">
+        <div className="pointer-events-none absolute top-5 left-5 z-10 max-w-md xl:max-w-lg bg-[#FFFDF9] p-4 xl:p-5 pixel-box">
+          <h1 className="font-display text-base xl:text-lg text-slate-900">
             MECARE: PETS TO-DO LIST
           </h1>
-          <p className="font-pixel text-lg font-bold text-slate-600 mt-1">
+          <p className="font-pixel text-base xl:text-lg font-bold text-slate-600 mt-1">
             Complete daily quests to evolve your companion and unlock milestone
             rewards.
           </p>
@@ -137,8 +137,8 @@ export const AuthScreen: React.FC<AuthScreenProps> = ({ onLoginSuccess }) => {
       </div>
 
       {/* Right Login / New Player Card */}
-      <div className="relative z-20 h-full w-full lg:w-[440px] lg:ml-auto p-4 sm:p-6 flex items-center justify-center">
-        <div className="w-full max-w-md max-h-[calc(100dvh-2rem)] overflow-y-auto bg-[#FFFDF9] pixel-box p-5">
+      <div className="relative z-20 h-full w-full lg:w-[440px] xl:w-[480px] 2xl:w-[520px] lg:ml-auto p-4 sm:p-6 xl:p-8 flex items-center justify-center">
+        <div className="w-full max-w-md xl:max-w-lg max-h-[calc(100dvh-2rem)] overflow-y-auto bg-[#FFFDF9] pixel-box p-5 xl:p-6">
           <div className="mb-4 pb-3 border-b border-slate-300">
             <div className="font-display text-xs sm:text-sm text-slate-900">
               TRAINER PORTAL

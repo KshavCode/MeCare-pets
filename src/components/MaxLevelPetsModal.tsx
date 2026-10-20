@@ -88,10 +88,9 @@ export const MaxLevelPetsModal: React.FC<MaxLevelPetsModalProps> = ({
           <button
             type="button"
             onClick={onClose}
-            className="px-4 py-2 bg-rose-400 hover:bg-rose-300 text-slate-950 font-display text-xs pixel-btn flex items-center gap-1.5"
+            className="px-5 py-1 bg-rose-400 hover:bg-rose-300 text-slate-950 font-display text-xs pixel-btn flex items-center gap-1"
           >
-            <X className="w-4 h-4" />
-            <span>CLOSE</span>
+            <X className="w-5 h-5" />
           </button>
         </div>
 
@@ -111,7 +110,7 @@ export const MaxLevelPetsModal: React.FC<MaxLevelPetsModalProps> = ({
                   <Flame className="w-4 h-4 text-orange-500 fill-current" />
                   <span>x{streakMultiplier.toFixed(2)} XP</span>
                 </span>
-                <span className="font-pixel text-xl font-bold text-slate-700">
+                <span className="font-pixel text-xs font-bold text-slate-700">
                   {userDisciplineInfo.intoLevelXp} /{' '}
                   {userDisciplineInfo.requiredForNextLevelXp} XP
                 </span>
@@ -162,7 +161,7 @@ export const MaxLevelPetsModal: React.FC<MaxLevelPetsModalProps> = ({
                   <Sparkles className="w-4 h-4 text-amber-600" />
                   <span>TOTAL SYSTEM BOOST ({fullyGrownPets.length} Fully Grown Pets)</span>
                 </div>
-                <p className="font-pixel text-base font-bold text-slate-700 mt-0.5">
+                <p className="font-pixel text-xs font-bold text-slate-700 mt-0.5">
                   Permanent passive perks applied across all your quests, gold rewards & interactions
                 </p>
               </div>
@@ -216,15 +215,6 @@ export const MaxLevelPetsModal: React.FC<MaxLevelPetsModalProps> = ({
                         <h4 className="font-display text-xs sm:text-sm text-slate-900 truncate">
                           {customName}
                         </h4>
-                        <span
-                          className={`px-2 py-0.5 font-display text-[10px] pixel-box-sm shrink-0 uppercase ${
-                            stageInfo.isAdultMax
-                              ? 'bg-amber-300 text-slate-950'
-                              : rMeta.badgeBg
-                          }`}
-                        >
-                          {stageInfo.isAdultMax ? 'FULLY GROWN' : stage}
-                        </span>
                       </div>
 
                       {/* Static Sprite */}
@@ -234,7 +224,7 @@ export const MaxLevelPetsModal: React.FC<MaxLevelPetsModalProps> = ({
 
                       {/* Pet Stage Growth Progress Bar (Toward Adulthood 2,800 XP) */}
                       <div className="mb-2.5">
-                        <div className="flex items-center justify-between font-pixel text-lg font-bold text-slate-700 mb-1">
+                        <div className="flex items-center justify-between font-pixel text-xs font-bold text-slate-700 mb-1">
                           <span className="uppercase">
                             {stageInfo.isAdultMax ? 'FULLY GROWN' : stage}
                           </span>
@@ -297,7 +287,7 @@ export const MaxLevelPetsModal: React.FC<MaxLevelPetsModalProps> = ({
                         onSelectSpecies(species);
                         onClose();
                       }}
-                      className={`w-full py-2.5 px-3 font-display text-xs pixel-btn flex items-center justify-center gap-1.5 ${
+                      className={`w-full py-1 px-1 font-display text-xs pixel-btn flex items-center justify-center gap-1.5 ${
                         isActive
                           ? 'bg-emerald-400 text-slate-950'
                           : 'bg-white hover:bg-amber-200 text-slate-900'
@@ -305,8 +295,7 @@ export const MaxLevelPetsModal: React.FC<MaxLevelPetsModalProps> = ({
                     >
                       {isActive ? (
                         <>
-                          <Check className="w-4 h-4" />
-                          <span>ACTIVE</span>
+                          <Check className="w-7 h-7" />
                         </>
                       ) : (
                         <span>SELECT</span>

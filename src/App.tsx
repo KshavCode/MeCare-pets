@@ -2144,7 +2144,7 @@ export default function App() {
                   autoFocus
                   value={petNameInput}
                   onChange={(e) => setPetNameInput(e.target.value)}
-                  className="px-2.5 py-1 bg-white border-2 border-slate-800 text-slate-900 font-pixel text-xl font-bold w-28 focus:outline-none"
+                  className="px-2.5 py-1 bg-white border-2 border-slate-800 text-slate-900 font-pixel text-base font-bold w-28 focus:outline-none"
                 />
                 <button
                   type="submit"
@@ -2254,7 +2254,7 @@ export default function App() {
             <span className="font-display text-sm flex items-center whitespace-nowrap">
               {profile.streakDays}D
             </span>
-            <span className="px-1.5 py-0.5 bg-white/90 border border-[#3B4254] font-pixel text-base font-bold text-slate-900 flex items-center whitespace-nowrap">
+            <span className="px-1.5 py-0.5 bg-white/90 border border-[#3B4254] font-pixel text-xs font-bold text-slate-900 flex items-center whitespace-nowrap">
               x{streakMultiplier.toFixed(2)} XP
             </span>
           </div>
@@ -2275,7 +2275,7 @@ export default function App() {
                 style={{ width: `${userDisciplineInfo.progressPct}%` }}
               />
             </div>
-            <span className="font-pixel text-lg font-bold text-slate-700 flex items-center">
+            <span className="font-pixel text-xs font-bold text-slate-700 flex items-center">
               {userDisciplineInfo.intoLevelXp}/
               {userDisciplineInfo.requiredForNextLevelXp} XP
             </span>
@@ -2297,9 +2297,9 @@ export default function App() {
 
       {/* Timer Task Auto-Reward Toast Banner */}
       {timerRewardToast && (
-        <div className="fixed top-24 sm:top-20 left-1/2 -translate-x-1/2 z-40 bg-emerald-400 text-slate-950 pixel-box px-4 py-3 flex items-center gap-3">
+        <div className="fixed top-24 sm:top-20 left-1/2 -translate-x-1/2 z-40 bg-emerald-400 text-slate-950 pixel-box px-4 py-2.5 flex items-center gap-3">
           <Timer className="w-5 h-5 shrink-0" />
-          <div className="font-pixel text-xl font-bold flex items-center gap-1.5">
+          <div className="font-pixel text-xs sm:text-sm font-bold flex items-center gap-1.5">
             <span>
               TIMER FINISHED: “{timerRewardToast.taskTitle}” (+
               {timerRewardToast.xpEarned} XP,
@@ -2480,16 +2480,15 @@ export default function App() {
                   SHOP
                 </div>
                 <div className="font-pixel text-xs sm:text-sm text-amber-800 font-bold">
-                  Applies to whole system once pet reaches Adult stage (2,800 XP)
+                  Perks only activate after reaching the Adult stage
                 </div>
               </div>
               <button
                 type="button"
                 onClick={() => setShowStoreModal(false)}
-                className="px-4 py-2 bg-rose-400 hover:bg-rose-300 text-slate-950 font-display text-xs pixel-btn flex items-center gap-1.5"
+                className="px-5 py-1 bg-rose-400 hover:bg-rose-300 text-slate-950 font-display text-xs pixel-btn flex items-center gap-1.5"
               >
-                <X className="w-4 h-4" />
-                <span>CLOSE</span>
+                <X className="w-5 h-5" />
               </button>
             </div>
             <div className="p-4 sm:p-6 overflow-y-auto flex-1">

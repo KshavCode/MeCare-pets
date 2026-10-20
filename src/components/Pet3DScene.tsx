@@ -616,7 +616,7 @@ export const Pet3DScene: React.FC<Pet3DSceneProps> = ({
               id={`tutorial-decor-${item.slot}`}
               type="button"
               onClick={() => onOpenDecorShop?.(item.slot)}
-              title={item.id ? `Customize Wall Decor ${idx + 1}` : `Place Wall Decor ${idx + 1} (+)`}
+              title="Customize Wall Decor"
               className="p-1 rounded-sm hover:scale-105 transition-transform focus:outline-none group flex flex-col items-center justify-center bg-white/35 backdrop-blur-xs border border-slate-700/25 hover:border-slate-800 shadow-xs"
             >
               {item.id ? (
