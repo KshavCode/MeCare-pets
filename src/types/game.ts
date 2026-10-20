@@ -119,6 +119,7 @@ export type AnimalCryCategory =
 
 export interface PetSpeciesConfig {
   id: PetSpeciesId;
+  name: string;
   rarity: PetRarityTier;
   priceGold: number;
   isDefault: boolean;

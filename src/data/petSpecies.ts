@@ -202,7 +202,7 @@ export function getAdultBonusForSpecies(species: PetSpeciesConfig): AdultPetBonu
     case 'mythic': {
       if (species.id === 'ignis_rex') {
         return {
-          description: '+25% Quest XP, +20% Quest Gold & +8 Extra Mood on Interactions',
+          description: '+25% XP, +20% Gold & +8 Extra Mood on Interactions',
           xpPct: 25,
           goldPct: 20,
           moodBoost: 8,
@@ -210,7 +210,7 @@ export function getAdultBonusForSpecies(species: PetSpeciesConfig): AdultPetBonu
       }
       if (species.id === 'terradon') {
         return {
-          description: '+22% Quest XP, +24% Quest Gold & +8 Extra Mood on Interactions',
+          description: '+22% XP, +24% Gold & +8 Extra Mood on Interactions',
           xpPct: 22,
           goldPct: 24,
           moodBoost: 8,
@@ -218,7 +218,7 @@ export function getAdultBonusForSpecies(species: PetSpeciesConfig): AdultPetBonu
       }
       if (species.id === 'aegis_wolf') {
         return {
-          description: '+24% Quest XP, +18% Quest Gold & +8 Extra Mood on Interactions',
+          description: '+24% XP, +18% Gold & +8 Extra Mood on Interactions',
           xpPct: 24,
           goldPct: 18,
           moodBoost: 8,
@@ -226,7 +226,7 @@ export function getAdultBonusForSpecies(species: PetSpeciesConfig): AdultPetBonu
       }
       if (species.id === 'celestia') {
         return {
-          description: '+25% Quest XP, +25% Quest Gold & +10 Extra Mood on Interactions',
+          description: '+25% XP, +25% Gold & +10 Extra Mood on Interactions',
           xpPct: 25,
           goldPct: 25,
           moodBoost: 10,
@@ -234,14 +234,14 @@ export function getAdultBonusForSpecies(species: PetSpeciesConfig): AdultPetBonu
       }
       if (species.id === 'obsidian_titan') {
         return {
-          description: '+20% Quest XP, +26% Quest Gold & +8 Extra Mood on Interactions',
+          description: '+20% XP, +26% Gold & +8 Extra Mood on Interactions',
           xpPct: 20,
           goldPct: 26,
           moodBoost: 8,
         };
       }
       return {
-        description: '+22% Quest XP, +22% Quest Gold & +8 Extra Mood on Interactions',
+        description: '+22% XP, +22% Gold & +8 Extra Mood on Interactions',
         xpPct: 22,
         goldPct: 22,
         moodBoost: 8,
@@ -249,28 +249,28 @@ export function getAdultBonusForSpecies(species: PetSpeciesConfig): AdultPetBonu
     }
     case 'legendary':
       return {
-        description: '+15% Quest XP, +14% Quest Gold & +6 Extra Mood on Interactions',
+        description: '+15% XP, +14% Gold & +6 Extra Mood on Interactions',
         xpPct: 15,
         goldPct: 14,
         moodBoost: 6,
       };
     case 'epic':
       return {
-        description: '+11% Quest XP, +10% Quest Gold & +5 Extra Mood on Interactions',
+        description: '+11% XP, +10% Gold & +5 Extra Mood on Interactions',
         xpPct: 11,
         goldPct: 10,
         moodBoost: 5,
       };
     case 'rare':
       return {
-        description: '+8% Quest XP, +8% Quest Gold & +4 Extra Mood on Interactions',
+        description: '+8% XP, +8% Gold & +4 Extra Mood on Interactions',
         xpPct: 8,
         goldPct: 8,
         moodBoost: 4,
       };
     case 'uncommon':
       return {
-        description: '+6% Quest XP, +5% Quest Gold & +3 Extra Mood on Interactions',
+        description: '+6% XP, +5% Gold & +3 Extra Mood on Interactions',
         xpPct: 6,
         goldPct: 5,
         moodBoost: 3,
@@ -279,7 +279,7 @@ export function getAdultBonusForSpecies(species: PetSpeciesConfig): AdultPetBonu
     default: {
       if (species.id === 'common_dog') {
         return {
-          description: '+4% Quest XP & +2 Extra Mood on Petting',
+          description: '+4% XP & +2 Extra Mood on Petting',
           xpPct: 4,
           goldPct: 0,
           moodBoost: 2,
@@ -287,14 +287,14 @@ export function getAdultBonusForSpecies(species: PetSpeciesConfig): AdultPetBonu
       }
       if (species.id === 'common_cat') {
         return {
-          description: '+4% Quest Gold & +2 Extra Mood on Petting',
+          description: '+4% Gold & +2 Extra Mood on Petting',
           xpPct: 0,
           goldPct: 4,
           moodBoost: 2,
         };
       }
       return {
-        description: '+3% Quest XP, +3% Quest Gold & +2 Extra Mood on Petting',
+        description: '+3% XP, +3% Gold & +2 Extra Mood on Petting',
         xpPct: 3,
         goldPct: 3,
         moodBoost: 2,
@@ -692,18 +692,13 @@ function buildAnimalSpecies(params: {
   return {
     id: params.id,
     name: params.name,
-    title: params.title,
     rarity: params.rarity,
-    populationNote: params.populationNote,
-    vibeTag: params.vibeTag,
-    styleArchetype: params.styleArchetype,
     priceGold: params.priceGold,
     isDefault: Boolean(params.isDefault),
     primaryColor: params.primaryColor,
     secondaryColor: params.secondaryColor,
     accentHex: params.accentHex,
     habitatImage: ignisHabitatImg,
-    lore: params.lore,
     passiveBonusText: params.passiveBonusText,
     visualArchetype: params.visualArchetype,
     cryCategory: params.cryCategory,
